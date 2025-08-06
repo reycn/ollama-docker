@@ -2,8 +2,8 @@ services:
   app:
     build: .
     ports:
-      - 8000:8000
-      - 5678:5678
+      - 8005:8000
+      - 5675:5678
     volumes:
       - .:/code
     command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
@@ -39,7 +39,7 @@ services:
     depends_on:
       - ollama
     ports:
-      - 8080:8080
+      - 8085:8080
     environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
       - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
       - ENV=dev
@@ -57,3 +57,4 @@ networks:
   ollama-docker:
     external: false
   
+
